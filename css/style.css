@@ -1,7 +1,67 @@
 *,
 *::after,
-*::before{
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Custom variables */
+:root {
+    --primary: rgb(0, 0, 0);
+    --secondary: white;
+    --alternative: hsla(100, 13%, 28%, 0.7);
+    --bgHeaderFooter: rgb(79, 100, 95);
+    --awesome: darkolivegreen;
+    --mainBox-shadow: .2rem .2rem .1rem .2rem rgba(105, 96, 96, 0.75);
+    --card-box-shadow: .5vw .5vw 1vw rgba(90, 115, 132, 0.9);
+    --text-shadow: .3rem .3rem .4rem rgba(78, 107, 91, 0.5);
+    --mainBg: hsla(145, 83%, 20%, 0.39);
+    --bgImg: linear-gradient(to right, var(--awesome), var(--mainBg));
+    --drop-shadow: 2rem 2rem 1rem var(--mainBg);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* display -> grid */
+:is(body){
+    display: grid;
+}
+/* display -> flex */
+:is(.menu, .menu-list) {
+    display: flex;
+}
+body {
+    grid-template-rows: auto minmax(100dvh, 100%) auto;
+    text-align: center;
+}
+
+.menu {
+    justify-content: space-between;
+    padding: .1rem;
+    & img[alt="logo"]{
+        width: 5rem;
+        aspect-ratio: 1;
+    }
+    & .menu-list{
+        justify-content: space-around;
+        gap: .2rem;
+        list-style: none;
+        & a {
+            text-decoration: none;
+        }
+    }
+
+}
+main {
+    & #landing {
+        img[alt="profile"] {
+            width: 40rem;
+            aspect-ratio: 1;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
 }
