@@ -25,43 +25,74 @@
     display: none;
 }
 
-/* display -> grid */
-:is(body){
-    display: grid;
+/* nav and footer */
+:is(.menu, footer) {
+    background-color: var(--bgHeaderFooter);
 }
+
+/* display -> grid */
+:is(body) {
+    display: grid;
+
+    &>* {
+        width: 100%;
+    }
+}
+
 /* display -> flex */
-:is(.menu, .menu-list) {
+:is(.menu, .menu-list, .card) {
     display: flex;
 }
+
 body {
     grid-template-rows: auto minmax(100dvh, 100%) auto;
     text-align: center;
 }
 
+:is(main, .menu, .card) {
+    padding: .2rem;
+}
+
 .menu {
     justify-content: space-between;
-    padding: .1rem;
-    & img[alt="logo"]{
+
+    & img[alt="logo"] {
         width: 5rem;
         aspect-ratio: 1;
     }
-    & .menu-list{
+
+    & .menu-list {
         justify-content: space-around;
+        align-items: center;
         gap: .2rem;
         list-style: none;
+
         & a {
+            color: var(--secondary);
             text-decoration: none;
         }
     }
 
 }
-main {
-    & #landing {
-        img[alt="profile"] {
-            width: 40rem;
-            aspect-ratio: 1;
-            object-fit: contain;
-            object-position: center;
-        }
+
+.card {
+    flex-flow: column wrap;
+    width: 40rem;
+    border: 1px var(--awesome) solid;
+
+    margin-inline: auto;
+
+    & img[alt="profile"] {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* footer */
+footer {
+    & #footer-content {
+        color: var(--secondary);
     }
 }
