@@ -90,6 +90,18 @@ body {
     }
 }
 
+/* Media queries */
+@media screen and (width < 720px) {
+    :is(nav) {
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
 /* footer */
 footer {
     & #footer-content {
