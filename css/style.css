@@ -88,9 +88,17 @@ body {
 .menu {
     justify-content: space-between;
 
+    & :is(img[alt="logo"], a) {
+        transition: all .5s linear;
+    }
+
     & img[alt="logo"] {
         width: 5rem;
         aspect-ratio: 1;
+
+        &:hover {
+            scale: 1.1;
+        }
     }
 
     & .menu-list {
@@ -104,7 +112,6 @@ body {
         & a {
             color: var(--secondary);
             text-decoration: none;
-            transition: all .5s linear;
             padding-inline: .2rem;
             font-size: 1.1rem;
 
@@ -123,7 +130,7 @@ body {
     flex-flow: column wrap;
     width: 40rem;
     border: 1px var(--awesome) solid;
-
+    box-shadow: var(--card-box-shadow);
     margin-inline: auto;
 
     & img[alt="profile"] {
