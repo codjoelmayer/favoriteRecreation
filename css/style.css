@@ -85,6 +85,10 @@ body {
     padding: .2rem;
 }
 
+section {
+    scroll-margin-block: 7rem;
+}
+
 .menu {
     justify-content: space-between;
 
