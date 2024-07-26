@@ -12,8 +12,8 @@
     --secondary: white;
     --alternative: hsla(100, 13%, 28%, 0.7);
     --bgHeaderFooter: rgb(79, 100, 95);
-    --awesome: darkolivegreen;
-    --mainBox-shadow: .2rem .2rem .1rem .2rem rgba(105, 96, 96, 0.75);
+    --awesome: rgb(36, 57, 38);
+    --link-box-shadow: .1rem .1rem .1rem var(--secondary);
     --card-box-shadow: .5vw .5vw 1vw rgba(90, 115, 132, 0.9);
     --text-shadow: .3rem .3rem .4rem rgba(78, 107, 91, 0.5);
     --mainBg: hsla(145, 83%, 20%, 0.39);
@@ -23,6 +23,12 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+/* nav only */
+.menu {
+    position: sticky;
+    top: 0;
 }
 
 /* nav and footer */
@@ -62,14 +68,26 @@ body {
     }
 
     & .menu-list {
-        justify-content: space-around;
         align-items: center;
-        gap: .2rem;
         list-style: none;
+
+        & li {
+            padding-inline: .5rem;
+        }
 
         & a {
             color: var(--secondary);
             text-decoration: none;
+            transition: all .5s linear;
+            padding-inline: .2rem;
+            font-size: 1.1rem;
+
+            &:is(:active, :hover, :focus) {
+                color: var(--awesome);
+                text-decoration: underline;
+                box-shadow: var(--link-box-shadow);
+                scale: 1.2;
+            }
         }
     }
 
