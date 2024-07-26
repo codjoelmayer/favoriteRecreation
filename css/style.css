@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* Custom variables */
 :root {
     --primary: rgb(0, 0, 0);
@@ -15,14 +19,36 @@
     --awesome: rgb(36, 57, 38);
     --link-box-shadow: .1rem .1rem .1rem var(--secondary);
     --card-box-shadow: .5vw .5vw 1vw rgba(90, 115, 132, 0.9);
+    --img-box-shadow: .1rem .1rem .2rem var(--awesome);
     --text-shadow: .3rem .3rem .4rem rgba(78, 107, 91, 0.5);
     --mainBg: hsla(145, 83%, 20%, 0.39);
     --bgImg: linear-gradient(to right, var(--awesome), var(--mainBg));
     --drop-shadow: 2rem 2rem 1rem var(--mainBg);
 }
 
-::-webkit-scrollbar {
-    display: none;
+/* Animate my profile image's coordinates. */
+@property --top-left {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 25%;
+}
+
+@property --top-right {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 50%;
+}
+
+@property --bottom-left {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+}
+
+@property --bottom-right {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
 }
 
 /* nav only */
@@ -105,6 +131,23 @@ body {
         aspect-ratio: 1;
         object-fit: cover;
         object-position: center;
+        border-top-left-radius: var(--top-left);
+        border-top-right-radius: var(--top-right);
+        border-bottom-left-radius: var(--bottom-left);
+        border-bottom-right-radius:
+            var(--bottom-right);
+        animation: animateProfile 2s infinite;
+        box-shadow: var(--img-box-shadow);
+    }
+}
+
+/* Animation */
+@keyframes animateProfile {
+    to {
+        --top-left: 0%;
+        --top-right: 0%;
+        --bottom-left: 40%;
+        --bottom-right: 30%;
     }
 }
 
