@@ -16,11 +16,11 @@
     --secondary: white;
     --alternative: hsla(100, 13%, 28%, 0.7);
     --bgHeaderFooter: rgb(79, 100, 95);
-    --awesome: rgb(36, 57, 38);
+    --awesome: rgb(5, 68, 11);
     --link-box-shadow: .1rem .1rem .1rem var(--secondary);
     --card-box-shadow: .5vw .5vw 1vw rgba(90, 115, 132, 0.9);
     --img-box-shadow: .1rem .1rem .2rem var(--awesome);
-    --text-shadow: .3rem .3rem .4rem rgba(78, 107, 91, 0.5);
+    --text-shadow: .2rem .1rem .1rem rgba(78, 107, 91, 0.5);
     --mainBg: hsla(145, 83%, 20%, 0.39);
     --bgImg: linear-gradient(to right, var(--awesome), var(--mainBg));
     --drop-shadow: 2rem 2rem 1rem var(--mainBg);
@@ -147,8 +147,30 @@ section {
         border-bottom-left-radius: var(--bottom-left);
         border-bottom-right-radius:
             var(--bottom-right);
-        animation: animateProfile 2s infinite;
+        animation: animateProfile 5s infinite;
         box-shadow: var(--img-box-shadow);
+    }
+
+    & :is(h2) {
+        font-size: 2.2rem;
+        text-shadow: var(--text-shadow);
+
+        &::first-letter {
+            font-size: 2.2rem;
+            color: var(--awesome);
+
+        }
+    }
+
+    & #about-content {
+        &::first-letter {
+            color: var(--awesome);
+            font-weight: bolder;
+        }
+
+        &::first-line {
+            filter: drop-shadow(var(--drop-shadow));
+        }
     }
 }
 
