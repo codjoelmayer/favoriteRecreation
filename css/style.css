@@ -63,12 +63,8 @@
 }
 
 /* display -> grid */
-:is(body) {
+:is(body, .chessBoard, .items) {
     display: grid;
-
-    &>* {
-        width: 100%;
-    }
 }
 
 /* display -> flex */
@@ -87,6 +83,11 @@ body {
 
 section {
     scroll-margin-block: 7rem;
+    min-height: 100dvh;
+}
+
+section#about {
+    margin-bottom: 2rem;
 }
 
 .menu {
@@ -130,12 +131,16 @@ section {
 
 }
 
-.card {
-    flex-flow: column wrap;
+:is(.card, .chessBoard) {
     width: 40rem;
     border: 1px var(--awesome) solid;
     box-shadow: var(--card-box-shadow);
     margin-inline: auto;
+    margin-block: .3rem;
+}
+
+.card {
+    flex-flow: column wrap;
 
     & img[alt="profile"] {
         width: 100%;
@@ -174,6 +179,38 @@ section {
     }
 }
 
+.chessBoard {
+    grid-template-rows: repeat(8, 2.8rem);
+
+    &>* {
+        font-size: 2rem;
+        margin-block: auto;
+    }
+
+    & .items {
+        grid-template-columns: subgrid;
+        grid-template-rows: 2.8rem;
+
+        & {
+            grid-column: 1/9;
+        }
+    }
+
+    & :nth-child(even) {
+        & :is(:nth-child(2n-1)) {
+            background-color: var(--awesome);
+            color: var(--secondary);
+        }
+    }
+
+    & :nth-child(odd) {
+        & :is(:nth-child(2n)) {
+            background-color: var(--awesome);
+            color: var(--secondary);
+        }
+    }
+}
+
 /* Animation */
 @keyframes animateProfile {
     to {
@@ -191,7 +228,7 @@ section {
         align-items: center;
     }
 
-    .card {
+    :is(.card, .chessBoard) {
         width: 100%;
     }
 }
