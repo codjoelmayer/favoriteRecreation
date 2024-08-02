@@ -8,7 +8,7 @@ function displayContent() {
     if (cnt == aboutMe.length)
         cnt = 0
     aboutContent.textContent = aboutMe[cnt]
-    setTimeout(displayContent, 5000)
+    setTimeout(displayContent, 7000)
     cnt++
 }
 displayContent()
